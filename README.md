@@ -35,6 +35,10 @@ System Requirements
 Changelog
 ---------
 
+**v0.2:**
+
+* Improve: Nested functions.
+
 **v0.1:**
 
 * Initial release.
