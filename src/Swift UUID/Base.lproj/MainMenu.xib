@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A298i" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,7 +10,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Swift_UUID" customModuleProvider="target">
             <connections>
                 <outlet property="popUp" destination="b1Y-rp-FVv" id="11u-bc-FR9"/>
@@ -143,10 +143,10 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Swift UUID" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" appearanceType="lightContent" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Swift UUID" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" appearanceType="aqua" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="335" y="390" width="387" height="124"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1130"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="387" height="124"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -167,7 +167,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button appearanceType="lightContent" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3v9-k6-Cmh">
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3v9-k6-Cmh">
                         <rect key="frame" x="60" y="18" width="307" height="25"/>
                         <buttonCell key="cell" type="roundTextured" title="Generate" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nAA-zh-Kpf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -177,7 +177,7 @@
                             <action selector="generateUUID:" target="Voe-Tx-rLC" id="N5Z-MO-ulJ"/>
                         </connections>
                     </button>
-                    <textField appearanceType="lightContent" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkn-Rj-4av">
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkn-Rj-4av">
                         <rect key="frame" x="60" y="82" width="307" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" id="XBc-ZF-is3">
                             <font key="font" metaFont="smallSystem"/>
@@ -185,7 +185,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <popUpButton appearanceType="lightContent" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1Y-rp-FVv">
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1Y-rp-FVv">
                         <rect key="frame" x="58" y="50" width="312" height="26"/>
                         <popUpButtonCell key="cell" type="push" title="Random UUID" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingMiddle" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="BRX-jw-OAB" id="vGp-vT-mjF">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -194,7 +194,7 @@
                                 <items>
                                     <menuItem title="Random UUID" state="on" id="BRX-jw-OAB"/>
                                     <menuItem title="Hardware UUID" tag="1" id="Jah-Ku-NKJ"/>
-                                    <menuItem title="System Serial Number" tag="2" id="tc1-9m-jHq"/>
+                                    <menuItem title="System Serial Number (Broken)" tag="2" id="tc1-9m-jHq"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>

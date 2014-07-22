@@ -26,9 +26,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // Xcode 6 beta does not implement #pragma yet. :(
     // #pragma mark - UI
                             
-    @IBOutlet var window: NSWindow
-    @IBOutlet var result: NSTextField
-    @IBOutlet var popUp:  NSPopUpButton
+    @IBOutlet var window: NSWindow!
+    @IBOutlet var result: NSTextField!
+    @IBOutlet var popUp:  NSPopUpButton!
 
     // #pragma mark - Basic
     
@@ -69,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             
             if uuidStringRef {
-                uuid = CFBridgingRelease(uuidStringRef!) as String
+                uuid = uuidStringRef! as NSString
                 return true
             }
             
@@ -81,7 +81,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             var uuidRef:        CFUUIDRef?
             var uuidStringRef:  CFStringRef?
-            var uuidBytes:      CUnsignedChar[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            var uuidBytes:      [CUnsignedChar] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             
             var ts = timespec(tv_sec: 0,tv_nsec: 0)
             
@@ -107,9 +107,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 uuidBytes[15]
             )
             
-            if uuidBytes != nil {
-                uuidBytes = []
-            }
+            uuidBytes = []
             
             uuidStringRef = CFUUIDCreateString(kCFAllocatorDefault, uuidRef)
             
@@ -118,7 +116,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             
             if uuidStringRef {
-                uuid = CFBridgingRelease(uuidStringRef!) as String
+                uuid = uuidStringRef! as NSString
                 return true
             }
             
@@ -128,30 +126,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Hardware serial number shows in "About this Mac" window.
         func getSystemSerialNumber(inout uuid: String) -> Bool {
             
+            // This part is broken in Xcode 6 beta 4 for unknown LLVM error....
+            
+            /*
+            
             var ioPlatformExpertDevice:             io_service_t?
             var serialNumber:                       CFTypeRef?
-            let ioPlatformExpertDeviceKey:          CString?        = "IOPlatformExpertDevice".UTF8String
             
             ioPlatformExpertDevice = IOServiceGetMatchingService(
                 kIOMasterPortDefault,
-                IOServiceMatching(ioPlatformExpertDeviceKey!).takeUnretainedValue()
+                IOServiceMatching("IOPlatformExpertDevice").takeUnretainedValue()
             )
             
             if ioPlatformExpertDevice {
                 serialNumber = IORegistryEntryCreateCFProperty(
                     ioPlatformExpertDevice!,
-                    CFStringCreateWithCString(kCFAllocatorDefault, kIOPlatformSerialNumberKey, kCFStringEncodingASCII),
+                    CFStringCreateWithCString(
+                        kCFAllocatorDefault,
+                        kIOPlatformSerialNumberKey,
+                        kCFStringEncodingASCII
+                    ),
                     kCFAllocatorDefault,
                     0
-                )
+                ).takeUnretainedValue()
                 
                 ioPlatformExpertDevice = nil
                 
                 if serialNumber {
-                    uuid = CFBridgingRelease(serialNumber!) as String
+                    uuid = serialNumber! as NSString
                     return true
                 }
-            }
+            } */
             
             return false
         }

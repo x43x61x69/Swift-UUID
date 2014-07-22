@@ -29,11 +29,16 @@ System Requirements
 -------------------
 
 * OS X 10.9 or later.
-* Xcode 6.0 or later.
+* Xcode 6 beta 4 or later.
 
 
 Changelog
 ---------
+
+**v0.3:**
+
+* Fix: Adjust API changes to beta 4.
+* Broken: System Serial Number function not working anymore.
 
 **v0.2:**
 
