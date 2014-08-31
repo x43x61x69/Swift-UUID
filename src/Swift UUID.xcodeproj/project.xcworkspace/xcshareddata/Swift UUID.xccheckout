@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>23F3A84B-C812-4AAF-AB04-42543D6167C0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Swift UUID</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E9A167EA31E5C124E75B2301D001B16039C3551B</key>
+		<string>https://github.com/x43x61x69/Swift-UUID.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>src/Swift UUID.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E9A167EA31E5C124E75B2301D001B16039C3551B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/x43x61x69/Swift-UUID.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E9A167EA31E5C124E75B2301D001B16039C3551B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E9A167EA31E5C124E75B2301D001B16039C3551B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Swift-UUID</string>
+		</dict>
+	</array>
+</dict>
+</plist>

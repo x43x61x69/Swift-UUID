@@ -35,6 +35,11 @@ System Requirements
 Changelog
 ---------
 
+**v0.4:**
+
+* Fix: Adjust API changes to beta 6.
+* Fix: System Serial Number function.
+
 **v0.3:**
 
 * Fix: Adjust API changes to beta 4.

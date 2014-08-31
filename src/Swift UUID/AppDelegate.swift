@@ -20,6 +20,7 @@
 //
 
 import Cocoa
+import IOKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -64,11 +65,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             uuidRef         = CFUUIDCreate(kCFAllocatorDefault)
             uuidStringRef   = CFUUIDCreateString(kCFAllocatorDefault, uuidRef)
             
-            if uuidRef {
+            if (uuidRef != nil) {
                 uuidRef = nil
             }
             
-            if uuidStringRef {
+            if (uuidStringRef != nil) {
                 uuid = uuidStringRef! as NSString
                 return true
             }
@@ -111,11 +112,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             uuidStringRef = CFUUIDCreateString(kCFAllocatorDefault, uuidRef)
             
-            if uuidRef {
+            if (uuidRef != nil) {
                 uuidRef = nil
             }
             
-            if uuidStringRef {
+            if (uuidStringRef != nil) {
                 uuid = uuidStringRef! as NSString
                 return true
             }
@@ -126,37 +127,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Hardware serial number shows in "About this Mac" window.
         func getSystemSerialNumber(inout uuid: String) -> Bool {
             
-            // This part is broken in Xcode 6 beta 4 for unknown LLVM error....
-            
-            /*
-            
             var ioPlatformExpertDevice:             io_service_t?
             var serialNumber:                       CFTypeRef?
+
             
             ioPlatformExpertDevice = IOServiceGetMatchingService(
                 kIOMasterPortDefault,
                 IOServiceMatching("IOPlatformExpertDevice").takeUnretainedValue()
             )
             
-            if ioPlatformExpertDevice {
+            if (ioPlatformExpertDevice != nil) {
+                
                 serialNumber = IORegistryEntryCreateCFProperty(
                     ioPlatformExpertDevice!,
-                    CFStringCreateWithCString(
-                        kCFAllocatorDefault,
-                        kIOPlatformSerialNumberKey,
-                        kCFStringEncodingASCII
-                    ),
+                    "IOPlatformSerialNumber", // println(kIOPlatformSerialNumberKey);
                     kCFAllocatorDefault,
                     0
-                ).takeUnretainedValue()
-                
-                ioPlatformExpertDevice = nil
-                
-                if serialNumber {
-                    uuid = serialNumber! as NSString
-                    return true
-                }
-            } */
+                ).takeRetainedValue()
+                println(serialNumber);
+            }
+            
+            IOObjectRelease(ioPlatformExpertDevice!)
+            
+            if (serialNumber != nil) {
+                uuid = serialNumber! as NSString
+                return true
+            }
             
             return false
         }
